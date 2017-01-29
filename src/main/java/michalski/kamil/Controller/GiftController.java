@@ -1,12 +1,19 @@
 package michalski.kamil.Controller;
 
 import michalski.kamil.model.Gif;
+import michalski.kamil.repository.GiftRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class GiftController {
+
+    @Autowired
+    private GiftRepository giftRepository;
+
+
     @GetMapping("/")
     public String listGifts(){
         return "home";
@@ -14,7 +21,7 @@ public class GiftController {
 
     @GetMapping("/gif")
     public String gitDetails(ModelMap modelMap){
-        Gif gif = new Gif("android-explosion","Kamil",true);
+        Gif gif = giftRepository.findByName("android-explosion");
         modelMap.put("gif",gif);
         return "gif-details";
     }
