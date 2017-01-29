@@ -1,7 +1,7 @@
 package michalski.kamil.Controller;
 
 import michalski.kamil.model.Gif;
-import michalski.kamil.repository.GiftRepository;
+import michalski.kamil.repository.GifRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class GiftController {
 
     @Autowired
-    private GiftRepository gifRepository;
+    private GifRepository gifRepository;
 
 
     @GetMapping("/")
