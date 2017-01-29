@@ -11,17 +11,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class GiftController {
 
     @Autowired
-    private GiftRepository giftRepository;
+    private GiftRepository gifRepository;
 
 
     @GetMapping("/")
-    public String listGifts(){
+    public String listGifts(ModelMap modelMap){
+        modelMap.addAttribute("gifs",gifRepository.getAllGifs());
         return "home";
     }
 
     @GetMapping("/gif")
     public String gitDetails(ModelMap modelMap){
-        Gif gif = giftRepository.findByName("android-explosion");
+        Gif gif = gifRepository.findByName("android-explosion");
         modelMap.put("gif",gif);
         return "gif-details";
     }

@@ -12,7 +12,7 @@ public class GiftRepository {
     private static final List<Gif> ALL_GIFS = Arrays.asList(
             new Gif("android-explosion", "Kamil", false),
             new Gif("ben-and-mike", "Kamil", false),
-            new Gif("books-dominos", "Kamil", true),
+            new Gif("book-dominos", "Kamil", true),
             new Gif("compiler-bot", "Kamil", false),
             new Gif("cowboy-coder", "Kamil", true),
             new Gif("infinite-andrew", "Kamil", false)
@@ -24,5 +24,9 @@ public class GiftRepository {
                 return gif;
         }
         return null;
+    }
+
+    public List<Gif> getAllGifs(){
+        return ALL_GIFS;
     }
 }
